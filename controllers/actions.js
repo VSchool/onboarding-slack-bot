@@ -4,7 +4,7 @@ const nextStepMessageBlocks = require("../message-blocks")
 function videoOpened(videoNum) {
     return async ({ ack, body, client }) => {
         await ack()
-        console.log(`Video ${videoNum} opened`)
+        console.log(`Video ${videoNum} opened by ${body.user.username}`)
         try {
             const result = await client.chat.postMessage({
                 channel: body.user.id,
@@ -20,12 +20,18 @@ function videoOpened(videoNum) {
 function sendNextMessage(videoNum) {
     return async ({ ack, body, client }) => {
         await ack()
-        console.log(`Video ${videoNum} marked as completed`)
+        console.log(
+            `Video ${videoNum - 1} marked as completed by ${body.user.username}`
+        )
         try {
-            const result = await client.chat.postMessage({
+            await client.chat.postMessage({
                 channel: body.user.id,
                 text: "Your next onboarding task is ready.",
                 blocks: nextStepMessageBlocks[videoNum - 1],
+            })
+            await client.chat.delete({
+                channel: body.channel.id,
+                ts: body.message.ts,
             })
         } catch (error) {
             console.error(error)
