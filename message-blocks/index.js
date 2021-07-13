@@ -11,7 +11,7 @@ const messageBlocks1 = [
         type: "section",
         text: {
             type: "mrkdwn",
-            text: "Welcome to V School's Intro-to-Tech course series! \n\nTo get started on the course, you will be watching a series of short videos to complete the course onboarding. \n\n To get started, click the button below to open the first welcome video in YouTube.\n\n*At the end of each video it will instruct you to type `/step <n> done`, however while this onboarding process is being developed we've simply included all the videos upfront for you to watch through. Please be sure to follow all the steps outlined in each video before moving on to the next.*",
+            text: "Welcome to V School's Intro-to-Tech course series! \n\nTo get started on the course, you will be watching a series of short videos to complete the course onboarding. \n\n To get started, click the button below to open the first welcome video in YouTube.\n\n*At the end of each video it will instruct you to type `/step <n> done`, however we've recently updated this bot to use buttons instead of the slash commands to progress from one step to the next. Thanks for your patience as we work on updating the videos to reflect this change.*",
         },
     },
     {

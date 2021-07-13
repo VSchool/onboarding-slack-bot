@@ -10,7 +10,7 @@ module.exports = function (num) {
                 type: "button",
                 text: {
                     type: "plain_text",
-                    text: "Next Step ✅",
+                    text: "✅ Next Step",
                     emoji: true,
                 },
                 value: `video-${num}-completed`,
