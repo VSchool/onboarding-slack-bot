@@ -47,6 +47,7 @@ Bob:    U027AHG688N
 Marcus: U0275CR6YJH
 Zaro:   U027FTA9DBM
 Grant:  U027UB7GH7T
+Cody:   U0260KTKW11
  */
 app.event("member_joined_channel", async ({ event, client }) => {
     if (event.user === "U027AHG688N") {
