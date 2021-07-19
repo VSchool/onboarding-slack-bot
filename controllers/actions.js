@@ -33,6 +33,22 @@ function sendNextMessage(videoNum) {
                 channel: body.channel.id,
                 ts: body.message.ts,
             })
+
+            // This is to get the users email address
+            // if(videoNum === 6){
+            //     const result = await client.users.identity({
+            //         token: process.env.SLACK_USER_TOKEN
+            //     })
+            //     console.log(result)
+            // }
+
+            // This is to add a user to a channel
+            // if(videoNum === 6){
+            //     const result = await client.conversations.invite({
+            //         channel: 'C0260LX5QEP', // #web_development_course
+            //         users: body.user.id
+            //     })
+            // }
         } catch (error) {
             console.error(error)
         }
