@@ -8,6 +8,10 @@ const {
     testSendNextMessage,
 } = require("./controllers/actions")
 
+const { getAirtableRecord } = require("./controllers/airtable")
+
+getAirtableRecord("josholive46@gmail.com")
+
 const app = new App({
     token: process.env.SLACK_BOT_TOKEN,
     signingSecret: process.env.SLACK_SIGNING_SECRET,
