@@ -1,7 +1,6 @@
 const { App } = require("@slack/bolt")
 require("dotenv").config()
 const sleep = require("./utils/sleep")
-const messageIntroToMember = require("./utils/message-member")
 const addVideoCompletedButton = require("./message-blocks/video-completed-button")
 const {
     videoOpened,
@@ -15,12 +14,6 @@ const app = new App({
     socketMode: true,
     appToken: process.env.APP_TOKEN,
 })
-
-/* While developing, if someone joins the team before the app is done, get their member ID,
-put it in the 2nd param below, uncomment it so the app restarts, then (once the message sends)
-comment it out again */
-
-// messageIntroToMember(app, "U027AHG688N") // Bob's user ID
 
 /************************
  *** Event listeners ****
