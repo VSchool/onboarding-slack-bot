@@ -1,6 +1,7 @@
 const videoCompletedButtonBlock = require("../message-blocks/video-completed-button")
 const nextStepMessageBlocks = require("../message-blocks")
 const { getAirtableRecord } = require("./airtable")
+const { courseLookup, communityLookup } = require('../utils/lookup')
 
 function videoOpened(videoNum) {
     return async ({ ack, body, client }) => {
@@ -40,16 +41,25 @@ function sendNextMessage(videoNum) {
                 const result = await client.users.profile.get({
                     user: body.user.id
                 })
-                const userEmail = result.profile.email
+                getAirtableRecord(result.profile.email, async record => {
+                    await client.conversations.invite({
+                        channel: courseLookup[record.fields.Course], // #web_development_course
+                        users: body.user.id
+                    })
+                    await client.conversations.invite({
+                        channel: communityLookup[record.fields['From Page']], // #the-opportunity-network
+                        users: body.user.id
+                    })
+                })
             }
 
             // This is to add a user to a channel
-            if(videoNum === 6){
-                const result = await client.conversations.invite({
-                    channel: 'C0260LX5QEP', // #web_development_course
-                    users: body.user.id
-                })
-            }
+            // if(videoNum === 6){
+            //     const result = await client.conversations.invite({
+            //         channel: 'C0260LX5QEP', // #web_development_course
+            //         users: body.user.id
+            //     })
+            // }
         } catch (error) {
             console.error(error)
         }
