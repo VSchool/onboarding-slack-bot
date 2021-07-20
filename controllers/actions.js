@@ -1,7 +1,7 @@
 const videoCompletedButtonBlock = require("../message-blocks/video-completed-button")
 const nextStepMessageBlocks = require("../message-blocks")
 const { getAirtableRecord } = require("./airtable")
-const { courseLookup, communityLookup } = require('../utils/lookup')
+const { courseLookup, communityLookup } = require("../utils/lookup")
 
 function videoOpened(videoNum) {
     return async ({ ack, body, client }) => {
@@ -37,19 +37,18 @@ function sendNextMessage(videoNum) {
             })
 
             // This is to get the users email address
-            if(videoNum === 6){
+            if (videoNum === 6) {
                 const result = await client.users.profile.get({
-                    user: body.user.id
+                    user: body.user.id,
                 })
-                getAirtableRecord(result.profile.email, async record => {
-                    await client.conversations.invite({
-                        channel: courseLookup[record.fields.Course], // #web_development_course
-                        users: body.user.id
-                    })
-                    await client.conversations.invite({
-                        channel: communityLookup[record.fields['From Page']], // #the-opportunity-network
-                        users: body.user.id
-                    })
+                const record = await getAirtableRecord(result.profile.email)
+                await client.conversations.invite({
+                    channel: courseLookup[record.fields.Course], // #web_development_course
+                    users: body.user.id,
+                })
+                await client.conversations.invite({
+                    channel: communityLookup[record.fields["From Page"]], // #the-opportunity-network
+                    users: body.user.id,
                 })
             }
 

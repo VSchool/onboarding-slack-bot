@@ -42,21 +42,21 @@ Zaro:   U027FTA9DBM
 Grant:  U027UB7GH7T
 Cody:   U0260KTKW11
  */
-app.event("member_joined_channel", async ({ event, client }) => {
-    if (event.user === "U027AHG688N") {
-        try {
-            await sleep(5000)
-            const result = await client.chat.postMessage({
-                channel: event.user,
-                text: "Hi there! :wave: \n\nWelcome to V School's Intro-to-Tech course series! \n\nTo get started on the course, you will be watching a series of short videos to complete the course onboarding. \n\nTo get started, click <https://www.youtube.com/watch?v=1l08BoI6G3M|this link> to open the first welcome video in YouTube.",
-                blocks: require("./message-blocks")[0],
-            })
-            console.log("Sent intro message successfully")
-        } catch (error) {
-            console.error(error)
-        }
-    }
-})
+// app.event("member_joined_channel", async ({ event, client }) => {
+//     if (event.user === "U027AHG688N") {
+//         try {
+//             await sleep(5000)
+//             const result = await client.chat.postMessage({
+//                 channel: event.user,
+//                 text: "Hi there! :wave: \n\nWelcome to V School's Intro-to-Tech course series! \n\nTo get started on the course, you will be watching a series of short videos to complete the course onboarding. \n\nTo get started, click <https://www.youtube.com/watch?v=1l08BoI6G3M|this link> to open the first welcome video in YouTube.",
+//                 blocks: require("./message-blocks")[0],
+//             })
+//             console.log("Sent intro message successfully")
+//         } catch (error) {
+//             console.error(error)
+//         }
+//     }
+// })
 
 app.event("member_left_channel", async ({ event, client }) => {
     console.log("Left channel")
