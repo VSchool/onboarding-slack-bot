@@ -36,29 +36,20 @@ function sendNextMessage(videoNum) {
                 ts: body.message.ts,
             })
 
-            // This is to get the users email address
             if (videoNum === 6) {
                 const result = await client.users.profile.get({
                     user: body.user.id,
                 })
                 const record = await getAirtableRecord(result.profile.email)
                 await client.conversations.invite({
-                    channel: courseLookup[record.fields.Course], // #web_development_course
+                    channel: courseLookup[record.fields.Course],
                     users: body.user.id,
                 })
                 await client.conversations.invite({
-                    channel: communityLookup[record.fields["From Page"]], // #the-opportunity-network
+                    channel: communityLookup[record.fields["From Page"]],
                     users: body.user.id,
                 })
             }
-
-            // This is to add a user to a channel
-            // if(videoNum === 6){
-            //     const result = await client.conversations.invite({
-            //         channel: 'C0260LX5QEP', // #web_development_course
-            //         users: body.user.id
-            //     })
-            // }
         } catch (error) {
             console.error(error)
         }
