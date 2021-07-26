@@ -2,7 +2,7 @@ const Airtable = require("airtable")
 const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
     "appDtw82NJafLsLdO"
 )
-function getAirtableRecord(emailAddress, callback) {
+function getAirtableRecord(emailAddress) {
     return new Promise((resolve, reject) => {
         let record
         base("Pre-course Communities")
