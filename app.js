@@ -1,6 +1,7 @@
 const { App } = require("@slack/bolt")
 require("dotenv").config()
 const sleep = require("./utils/sleep")
+const { getAirtableRecord } = require("./controllers/airtable")
 const addVideoCompletedButton = require("./message-blocks/video-completed-button")
 const {
     videoOpened,
@@ -27,6 +28,13 @@ app.event("team_join", async ({ event, client }) => {
             text: "Hi there! :wave: \n\nWelcome to V School's Intro-to-Tech course series! \n\nTo get started on the course, you will be watching a series of short videos to complete the course onboarding. \n\nTo get started, click <https://www.youtube.com/watch?v=1l08BoI6G3M|this link> to open the first welcome video in YouTube.",
             blocks: require("./message-blocks")[0],
         })
+        // Get user email
+        const results = await client.users.profile.get({
+            user: event.user,
+        })
+        // Add airtable field indicating they started the onboarding process
+        await getAirtableRecord(results.profile.email, 'started')
+
         console.log("Sent intro message successfully")
     } catch (error) {
         console.error(error)
@@ -43,7 +51,9 @@ Grant:  U027UB7GH7T
 Cody:   U0260KTKW11
  */
 // app.event("member_joined_channel", async ({ event, client }) => {
-//     if (event.user === "U027AHG688N") {
+//     console.log('event occurred')
+//     if (event.user === "U0275CR6YJH") {
+//         console.log('starting')
 //         try {
 //             await sleep(5000)
 //             const result = await client.chat.postMessage({
@@ -51,7 +61,11 @@ Cody:   U0260KTKW11
 //                 text: "Hi there! :wave: \n\nWelcome to V School's Intro-to-Tech course series! \n\nTo get started on the course, you will be watching a series of short videos to complete the course onboarding. \n\nTo get started, click <https://www.youtube.com/watch?v=1l08BoI6G3M|this link> to open the first welcome video in YouTube.",
 //                 blocks: require("./message-blocks")[0],
 //             })
-//             console.log("Sent intro message successfully")
+//             const results = await client.users.profile.get({
+//                 user: event.user,
+//             })
+//             await getAirtableRecord(results.profile.email, 'started')
+
 //         } catch (error) {
 //             console.error(error)
 //         }

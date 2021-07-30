@@ -1,3 +1,4 @@
+
 const messageBlocks1 = [
     {
         type: "header",
@@ -11,7 +12,7 @@ const messageBlocks1 = [
         type: "section",
         text: {
             type: "mrkdwn",
-            text: "Welcome to V School's Intro-to-Tech course series! \n\nTo get started on the course, you will be watching a series of short videos to complete the course onboarding. \n\n To get started, click the button below to open the first welcome video in YouTube.\n\n",
+            text: "Welcome to V School's Intro-to-Tech course series! \n\nTo get started on the course, you will be watching a series of 5 short videos to complete the course onboarding. \n\n Please make sure to watch each video in its entirety before moving onto the next video. \n\n Once you have completed all 5 steps, you will be added to your course channel and gain access to the curriculum. \n\n To get started, click the button below to open the first welcome video in YouTube.\n\n",
         },
     },
     {
@@ -155,7 +156,7 @@ const messageBlocks4 = [
                 },
                 value: "open-video-4",
                 action_id: "video-4-opened",
-                url: "https://youtu.be/1l08BoI6G3M",
+                url: "https://www.youtube.com/watch?v=KSmZgcvT2Bs",
             },
         ],
     },
@@ -177,7 +178,7 @@ const messageBlocks5 = [
         type: "section",
         text: {
             type: "mrkdwn",
-            text: "Finally, we'll show you how to access the actual curriculum so you can get started with your learning journey right away.",
+            text: "Finally, we’ll show you how to access the actual curriculum so you can get started with your learning journey right away.",
         },
     },
     {
@@ -214,7 +215,7 @@ const messageBlocks6 = [
         type: "section",
         text: {
             type: "mrkdwn",
-            text: "Now you're all set to start learning with V School's Intro-to-Tech course. Good luck, and don't hesitate to reach out to your instructor with any questions that you have.",
+            text: "Now you're all set to start learning with V School's Intro-to-Tech course. Good luck, and don't hesitate to reach out to your instructor with any questions that you have. \n\n \n\n  Note: You should now see that you have been added to your course channel on the left toolbar.",
         },
     },
 ]

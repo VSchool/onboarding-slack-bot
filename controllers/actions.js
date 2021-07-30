@@ -40,7 +40,7 @@ function sendNextMessage(videoNum) {
                 const result = await client.users.profile.get({
                     user: body.user.id,
                 })
-                const record = await getAirtableRecord(result.profile.email)
+                const record = await getAirtableRecord(result.profile.email, 'Completed')
                 await client.conversations.invite({
                     channel: courseLookup[record.fields.Course],
                     users: body.user.id,
