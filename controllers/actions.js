@@ -48,6 +48,14 @@ function sendNextMessage(videoNum) {
                 await client.conversations.invite({
                     channel: communityLookup[record.fields["From Page"]],
                     users: body.user.id,
+                }) 
+                await client.chat.postMessage({
+                    channel: 'U027UB7GH7T',
+                    text: `
+                    Name: ${result.profile.real_name},
+                    Course: ${courseLookup[record.fields.Course]}
+                    Partner: ${communityLookup[record.fields["From Page"]]}
+                    `,
                 })
             }
         } catch (error) {
