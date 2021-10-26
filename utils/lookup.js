@@ -8,7 +8,8 @@ const communityLookup = {
     'utah-health': 'C02FMNXTYKY',
     'meritorious': 'C02FDPWS0F9',
     'apartment-housing-rentals-foundation': 'C02GJ4KUBEC',
-    'logik-evolution': 'C02GB92G9MF'
+    'logik-evolution': 'C02GB92G9MF',
+    'snvcc': 'C02K0MZSSVB'
 }
 
 module.exports = {
