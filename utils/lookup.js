@@ -9,7 +9,8 @@ const communityLookup = {
     'meritorious': 'C02FDPWS0F9',
     'apartment-housing-rentals-foundation': 'C02GJ4KUBEC',
     'logik-evolution': 'C02GB92G9MF',
-    'snvcc': 'C02K0MZSSVB'
+    'snvcc': 'C02K0MZSSVB',
+    'karla-ballard': 'C02K5QWU3HB'
 }
 
 module.exports = {
