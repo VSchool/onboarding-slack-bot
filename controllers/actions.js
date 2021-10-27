@@ -50,13 +50,12 @@ function sendNextMessage(videoNum) {
                     users: body.user.id,
                 }) 
                 await client.chat.postMessage({
-                    channel: 'U027UB7GH7T',
-                    text: `
-                    Name: ${result.profile.real_name},
-                    Course: ${courseLookup[record.fields.Course]}
-                    Partner: ${communityLookup[record.fields["From Page"]]}
+                    channel: "U027UB7GH7T",
+                    text: `Name: ${result.profile.real_name},
+Course: ${record.fields.Course}
+Partner: ${record.fields["From Page"]}
                     `,
-                })
+                });
             }
         } catch (error) {
             console.error(error)
