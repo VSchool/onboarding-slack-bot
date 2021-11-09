@@ -12,7 +12,8 @@ const communityLookup = {
     'snvcc': 'C02K0MZSSVB',
     'karla-ballard': 'C02K5QWU3HB',
     'intro-to-tech': 'C02K75E2KEZ',
-    'kiln': 'C02LQ6TV4DR'
+    'kiln': 'C02LQ6TV4DR',
+    'the-shop': 'C02LSDYRPNG'
 }
 
 module.exports = {
