@@ -11,7 +11,8 @@ const communityLookup = {
     'logik-evolution': 'C02GB92G9MF',
     'snvcc': 'C02K0MZSSVB',
     'karla-ballard': 'C02K5QWU3HB',
-    'intro-to-tech': 'C02K75E2KEZ'
+    'intro-to-tech': 'C02K75E2KEZ',
+    'kiln': 'C02LQ6TV4DR'
 }
 
 module.exports = {
