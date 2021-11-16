@@ -17,7 +17,6 @@ function getAirtableRecord(emailAddress, status) {
                 // If not, it'll call `done`
                 function page(records, fetchNextPage) {
                     record = records[0]
-                    console.log(record)
                     fetchNextPage()
                 },
                 function done(err) {
@@ -29,7 +28,7 @@ function getAirtableRecord(emailAddress, status) {
                         base("Pre-course Communities")
                         .update(record.id, {
                             "Status": status,
-                          }, function(err, record) {
+                          }, {typecast: true}, function(err, record) {
                             if (err) {
                               console.error(err);
                               return;
