@@ -13,7 +13,8 @@ const communityLookup = {
     'karla-ballard': 'C02K5QWU3HB',
     'intro-to-tech-course': 'C02K75E2KEZ',
     'kiln': 'C02LQ6TV4DR',
-    'the-shop': 'C02LSDYRPNG'
+    'the-shop': 'C02LSDYRPNG',
+    'blue-star-families': 'C02SZBCEKAS'
 }
 
 module.exports = {
